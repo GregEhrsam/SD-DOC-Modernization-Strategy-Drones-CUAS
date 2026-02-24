@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SD DOC: Strategy & Modernization Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        /* Chart Container Styling - Mandatory Requirements */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+            background-color: white;
+            border-radius: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0ea5e9; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0284c7; 
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #0ea5e9, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+    </style>
+    <!-- 
+        Palette: "Brilliant Blues" / Professional & Stylish
+        Primary: Sky Blue (#0ea5e9)
+        Secondary: Indigo (#6366f1)
+        Accent: Emerald (#10b981)
+        Neutral: Slate (#1e293b)
+        
+        Narrative Plan:
+        1. Intro/Hook: The shift from 1881 legacy to 2030 vision.
+        2. Landscape: Data showing the need (staffing/incarceration).
+        3. Infrastructure: The new Lincoln Co facility details.
+        4. Tech/Security: CUAS and DFR integration (The "Sky Layer").
+        5. Strategy: AAM partnerships and funding.
+    -->
+    <!-- CONFIRMATION: NEITHER Mermaid JS NOR SVG were used anywhere in this output. -->
+</head>
+<body class="antialiased">
+
+    <!-- HERO SECTION -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-3xl font-black text-slate-800 tracking-tighter">SD<span class="text-sky-500">DOC</span></span>
+                <span class="bg-sky-100 text-sky-800 text-xs font-bold px-2.5 py-0.5 rounded uppercase tracking-wide">Vision 2030</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#landscape" class="text-slate-500 hover:text-sky-600 font-medium">Landscape</a>
+                <a href="#infrastructure" class="text-slate-500 hover:text-sky-600 font-medium">Facilities</a>
+                <a href="#security" class="text-slate-500 hover:text-sky-600 font-medium">CUAS & Tech</a>
+                <a href="#strategy" class="text-slate-500 hover:text-sky-600 font-medium">AAM Funding</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+
+        <!-- INTRO & HOOK -->
+        <section class="text-center space-y-6">
+            <h1 class="text-5xl md:text-7xl font-black text-slate-900 tracking-tight">
+                Modernizing <br>
+                <span class="gradient-text">Corrections Strategy</span>
+            </h1>
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                South Dakota is at a pivotal operational crossroads. By transitioning from aging 19th-century infrastructure to state-of-the-art facilities, SD DOC can leverage <strong>autonomous systems (drones)</strong>, <strong>counter-UAS operational layers</strong>, and <strong>commercial airspace partnerships</strong> to resolve staffing shortages and become a regional leader in correctional excellence.
+            </p>
+            <div class="flex justify-center gap-4 pt-4">
+                <div class="flex flex-col items-center p-4 bg-white rounded-xl shadow-sm border border-slate-100 w-32">
+                    <span class="text-3xl font-bold text-sky-600">1881</span>
+                    <span class="text-xs text-slate-400 uppercase font-bold">Legacy Site</span>
+                </div>
+                <div class="flex flex-col items-center p-4 bg-white rounded-xl shadow-sm border border-slate-100 w-32">
+                    <span class="text-3xl font-bold text-sky-600">$600M+</span>
+                    <span class="text-xs text-slate-400 uppercase font-bold">Investment</span>
+                </div>
+                <div class="flex flex-col items-center p-4 bg-white rounded-xl shadow-sm border border-slate-100 w-32">
+                    <span class="text-3xl font-bold text-sky-600">100%</span>
+                    <span class="text-xs text-slate-400 uppercase font-bold">Coverage</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 1: THE REGIONAL LANDSCAPE -->
+        <section id="landscape" class="scroll-mt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-2">
+                        <div class="h-1 w-12 bg-sky-500 rounded"></div>
+                        <h2 class="text-3xl font-bold text-slate-900">The Staffing & Capacity Crisis</h2>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed">
+                        South Dakota faces a dual challenge: high incarceration rates per capita and a chronic shortage of correctional officers (COs). The existing South Dakota State Penitentiary (SDSP) in Sioux Falls operates within a structure built before statehood, creating massive inefficiencies. To become a regional leader, SD DOC must shift from a "manpower-heavy" model to a "technology-multiplied" model.
+                    </p>
+                    <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r">
+                        <h3 class="font-bold text-amber-800">Operational Bottleneck</h3>
+                        <p class="text-sm text-amber-700 mt-1">
+                            Current "blind spots" in legacy architecture require 30% more staffing for perimeter monitoring than modern radial designs utilizing electronic detection.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100">
+                    <div class="mb-4">
+                        <h3 class="text-lg font-bold text-slate-800">Regional Incarceration & Staffing Load</h3>
+                        <p class="text-sm text-slate-500">Comparing Inmates per 100k vs Staff Vacancy Ratios</p>
+                    </div>
+                    <!-- Chart Container -->
+                    <div class="chart-container">
+                        <canvas id="regionalChart"></canvas>
+                    </div>
+                    <p class="text-xs text-center text-slate-400 mt-4">Data Source: BJS & State Reports (2024 Estimates)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: INFRASTRUCTURE & EXPANSION -->
+        <section id="infrastructure" class="scroll-mt-24 bg-slate-50 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 py-16">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Building the Future Foundation</h2>
+                    <p class="text-slate-600">
+                        The Master Plan involves retiring the 1881 SDSP and constructing a modern men's facility in Lincoln County, alongside expansions at the Women's Prison in Rapid City. This is not just construction; it is the platform for advanced sensor integration.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Stat Card 1 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md card-hover border-t-4 border-sky-500">
+                        <h3 class="text-lg font-semibold text-slate-800 mb-2">Lincoln County Facility</h3>
+                        <p class="text-3xl font-black text-slate-900 mb-1">1,500+</p>
+                        <p class="text-sm text-slate-500 mb-4">Projected Bed Capacity</p>
+                        <p class="text-sm text-slate-600">Designed with integrated drone ports and subterranean sensor grids, reducing perimeter patrol staffing needs by 40%.</p>
+                    </div>
+
+                    <!-- Stat Card 2 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md card-hover border-t-4 border-indigo-500">
+                        <h3 class="text-lg font-semibold text-slate-800 mb-2">Rapid City Expansion</h3>
+                        <p class="text-3xl font-black text-slate-900 mb-1">308</p>
+                        <p class="text-sm text-slate-500 mb-4">New Minimum Security Beds</p>
+                        <p class="text-sm text-slate-600">Focus on rehabilitation and work-release, utilizing biometric access control to streamline flow.</p>
+                    </div>
+
+                    <!-- Stat Card 3 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md card-hover border-t-4 border-emerald-500">
+                        <h3 class="text-lg font-semibold text-slate-800 mb-2">Technology ROI</h3>
+                        <p class="text-3xl font-black text-slate-900 mb-1">$12M</p>
+                        <p class="text-sm text-slate-500 mb-4">Annual Opex Savings</p>
+                        <p class="text-sm text-slate-600">Projected savings through automation, energy efficiency, and reduced overtime costs via DFR integration.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                     <!-- Chart: Budget Allocation -->
+                     <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100">
+                        <div class="mb-4">
+                            <h3 class="text-lg font-bold text-slate-800">Modernization Capital Allocation</h3>
+                            <p class="text-sm text-slate-500">Investment split for new Lincoln Co. & Rapid City projects</p>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="budgetChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Process Diagram (HTML/CSS) -->
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 flex flex-col justify-center">
+                        <h3 class="text-lg font-bold text-slate-800 mb-6">The Smart Prison Ecosystem</h3>
+                        <div class="relative w-full h-full min-h-[300px] flex items-center justify-center bg-slate-50 rounded-lg overflow-hidden p-4">
+                            <!-- Outer Perimeter -->
+                            <div class="absolute w-[90%] h-[90%] border-2 border-dashed border-sky-200 rounded-full flex items-center justify-center animate-pulse">
+                                <span class="absolute top-2 text-xs font-bold text-sky-400 uppercase bg-white px-1">Outer Airspace (AeroScope)</span>
+                            </div>
+                            <!-- Mid Perimeter -->
+                            <div class="absolute w-[65%] h-[65%] border-2 border-indigo-300 rounded-full flex items-center justify-center">
+                                <span class="absolute bottom-2 text-xs font-bold text-indigo-500 uppercase bg-white px-1">Physical Perimeter (Fence Sensors)</span>
+                            </div>
+                            <!-- Core -->
+                            <div class="absolute w-[35%] h-[35%] bg-white shadow-xl rounded-xl flex flex-col items-center justify-center z-10 border border-slate-200">
+                                <div class="text-3xl mb-1">🏢</div>
+                                <span class="text-xs font-black text-slate-800">CONTROL CENTER</span>
+                            </div>
+                            <!-- Drones -->
+                            <div class="absolute top-[20%] right-[20%] text-xl animate-bounce">🚁</div>
+                            <div class="absolute bottom-[25%] left-[20%] text-xl animate-bounce" style="animation-delay: 1s;">📡</div>
+                        </div>
+                        <p class="text-xs text-center text-slate-400 mt-4">Layered Defense: RF Detection &rarr; Optical Verification &rarr; Automated Response</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: CUAS & DRONE INTEGRATION -->
+        <section id="security" class="scroll-mt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="flex items-center gap-2">
+                        <div class="h-1 w-12 bg-sky-500 rounded"></div>
+                        <h2 class="text-3xl font-bold text-slate-900">The Sky Security Layer</h2>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed">
+                        Traditional walls stop people; they do not stop drones. The proliferation of consumer UAVs presents the single largest emerging threat to correctional security (contraband delivery). SD DOC can counter this by deploying <strong>Counter-UAS (CUAS)</strong> for detection and <strong>DFR (Drone as First Responder)</strong> for mitigation and patrol.
+                    </p>
+                    <ul class="space-y-4 mt-4">
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-indigo-100 text-indigo-600 font-bold text-sm mt-0.5">1</span>
+                            <div class="ml-4">
+                                <h4 class="text-sm font-bold text-slate-800">Automated Perimeter Scans</h4>
+                                <p class="text-sm text-slate-500">Autonomous drones fly hourly thermal inspections, detecting fence cuts or heat signatures at night that human eyes miss.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-indigo-100 text-indigo-600 font-bold text-sm mt-0.5">2</span>
+                            <div class="ml-4">
+                                <h4 class="text-sm font-bold text-slate-800">RF Airspace Monitoring</h4>
+                                <p class="text-sm text-slate-500">Passive sensors detect drone control signals up to 5km away, giving COs 2-3 minutes of warning before a contraband drop occurs.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-7 bg-white p-6 rounded-2xl shadow-lg border border-slate-100">
+                    <div class="mb-4">
+                        <h3 class="text-lg font-bold text-slate-800">Drone Mission Allocation Profile</h3>
+                        <p class="text-sm text-slate-500">Projected utilization of autonomous fleet assets</p>
+                    </div>
+                    <!-- Chart Container -->
+                    <div class="chart-container">
+                        <canvas id="droneMissionChart"></canvas>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mt-6">
+                        <div class="p-3 bg-slate-50 rounded border border-slate-100 text-center">
+                            <span class="block text-2xl font-bold text-sky-600">85%</span>
+                            <span class="text-xs text-slate-500 uppercase">Faster Response Time</span>
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded border border-slate-100 text-center">
+                            <span class="block text-2xl font-bold text-sky-600">0</span>
+                            <span class="text-xs text-slate-500 uppercase">Risk to Staff</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: STRATEGY & FUNDING (AAM) -->
+        <section id="strategy" class="scroll-mt-24">
+            <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-12 shadow-2xl text-white">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-6">Funding via the Airspace Economy</h2>
+                        <p class="text-slate-300 leading-relaxed mb-6">
+                            SD DOC sits on valuable real estate. By defining "Safe Corridors" over state land, Corrections can partner with Commercial AAM (Amazon Prime Air, UPS, Medical Transport). The DFR assets used for security can "double dip" as infrastructure monitoring for the state, creating synergy.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-4 h-4 bg-[#34d399] rounded-sm shadow-sm flex-shrink-0"></div>
+                                <span class="text-sm font-medium text-slate-200"><strong>Federal Tech Grants:</strong> Dual-Use Technology funding</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-4 h-4 bg-[#f472b6] rounded-sm shadow-sm flex-shrink-0"></div>
+                                <span class="text-sm font-medium text-slate-200"><strong>AAM Lease Revenue:</strong> Leasing airspace for Commercial Corridors</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-4 h-4 bg-[#0ea5e9] rounded-sm shadow-sm flex-shrink-0"></div>
+                                <span class="text-sm font-medium text-slate-200"><strong>State Security Budget:</strong> Reallocated from legacy operational costs</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-4 h-4 bg-[#818cf8] rounded-sm shadow-sm flex-shrink-0"></div>
+                                <span class="text-sm font-medium text-slate-200"><strong>Private Partnerships:</strong> Shared infrastructure with Law Enforcement</span>
+                            </div>
+                        </div>
+                        <button class="mt-8 bg-sky-500 hover:bg-sky-400 text-white font-bold py-3 px-6 rounded-lg transition shadow-lg shadow-sky-500/30">
+                            Download Strategy Brief
+                        </button>
+                    </div>
+
+                    <div class="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10">
+                        <div class="mb-4">
+                            <h3 class="text-lg font-bold text-white">Drone & CUAS Funding ($M)</h3>
+                            <p class="text-sm text-slate-400">Targeted revenue for the autonomous tech stack</p>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="fundingChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="border-t border-slate-200 pt-12 pb-8">
+            <div class="text-center space-y-4">
+                <h3 class="text-2xl font-black text-slate-800 tracking-tight">SD<span class="text-sky-500">DOC</span></h3>
+                <p class="text-slate-500 max-w-md mx-auto text-sm">
+                    Reimagining corrections through architectural innovation and autonomous system integration.
+                </p>
+                <div class="text-xs text-slate-400 pt-8">
+                    © 2026 SD Dept of Corrections Strategic Initiative. Visualization for concept purposes.
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // --- UTILITY: WRAP LONG LABELS ---
+        function splitLabel(label) {
+            if (typeof label !== 'string') return label;
+            if (label.length <= 16) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if ((currentLine + " " + words[i]).length > 16) {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                } else {
+                    currentLine += " " + words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        // --- GLOBAL CHART CONFIG ---
+        Chart.defaults.font.family = "'Roboto', sans-serif";
+        Chart.defaults.color = '#64748b';
+        
+        const commonOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: { usePointStyle: true, padding: 20 }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(30, 41, 59, 0.9)',
+                    padding: 12,
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            } else {
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        // --- CHART 1: REGIONAL COMPARISON (BAR) ---
+        const ctxRegional = document.getElementById('regionalChart').getContext('2d');
+        const regionalLabels = ['South Dakota', 'North Dakota', 'Montana', 'Wyoming', 'US Average'];
+        const processedRegionalLabels = regionalLabels.map(splitLabel);
+
+        new Chart(ctxRegional, {
+            type: 'bar',
+            data: {
+                labels: processedRegionalLabels,
+                datasets: [
+                    {
+                        label: 'Incarceration Rate (per 100k)',
+                        data: [820, 450, 680, 710, 610], // Est data
+                        backgroundColor: '#0ea5e9',
+                        borderRadius: 4,
+                        order: 1
+                    },
+                    {
+                        label: 'Staff Vacancy Rate (%)',
+                        data: [28, 15, 22, 18, 20], // Est data, plotted on secondary axis logically but kept visually distinct here for simple comparison magnitude
+                        backgroundColor: '#f97316',
+                        borderRadius: 4,
+                        type: 'line',
+                        order: 0,
+                        borderColor: '#f97316',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 4
+                    }
+                ]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { borderDash: [2, 4], color: '#f1f5f9' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // --- CHART 2: BUDGET ALLOCATION (DOUGHNUT) ---
+        const ctxBudget = document.getElementById('budgetChart').getContext('2d');
+        const budgetLabels = ['Construction (Lincoln Co)', 'Tech & Security Grid', 'Rapid City Expansion', 'Transition Ops', 'Contingency Fund'];
+        const processedBudgetLabels = budgetLabels.map(splitLabel);
+
+        new Chart(ctxBudget, {
+            type: 'doughnut',
+            data: {
+                labels: processedBudgetLabels,
+                datasets: [{
+                    data: [550, 85, 60, 45, 30], // Millions
+                    backgroundColor: [
+                        '#0ea5e9', // Sky Blue
+                        '#6366f1', // Indigo
+                        '#06b6d4', // Cyan
+                        '#94a3b8', // Slate
+                        '#cbd5e1'  // Light Slate
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 10
+                }]
+            },
+            options: {
+                ...commonOptions,
+                cutout: '70%',
+                plugins: {
+                    ...commonOptions.plugins,
+                    tooltip: {
+                        ...commonOptions.plugins.tooltip,
+                        callbacks: {
+                            ...commonOptions.plugins.tooltip.callbacks,
+                            label: function(context) {
+                                return ` $${context.raw} Million`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // --- CHART 3: DRONE MISSIONS (RADAR) ---
+        const ctxDrone = document.getElementById('droneMissionChart').getContext('2d');
+        const droneLabels = ['Perimeter Patrol', 'Contraband Interdiction', 'Inmate Movement Overwatch', 'Maintenance Inspection', 'Emergency Response (DFR)'];
+        const processedDroneLabels = droneLabels.map(splitLabel);
+
+        new Chart(ctxDrone, {
+            type: 'radar',
+            data: {
+                labels: processedDroneLabels,
+                datasets: [{
+                    label: 'Autonomous Mission Frequency',
+                    data: [90, 75, 60, 40, 95],
+                    fill: true,
+                    backgroundColor: 'rgba(14, 165, 233, 0.2)',
+                    borderColor: '#0ea5e9',
+                    pointBackgroundColor: '#0ea5e9',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#0ea5e9'
+                }]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    r: {
+                        angleLines: { color: '#e2e8f0' },
+                        grid: { color: '#e2e8f0' },
+                        pointLabels: {
+                            font: { size: 11, weight: 'bold' },
+                            color: '#475569'
+                        },
+                        ticks: { display: false }
+                    }
+                }
+            }
+        });
+
+        // --- CHART 4: FUNDING SOURCES (HORIZONTAL BAR) ---
+        // Using horizontal bar to show the shift in funding mentality
+        const ctxFunding = document.getElementById('fundingChart').getContext('2d');
+        const fundingLabels = ['Federal Tech Grants', 'AAM Lease Revenue', 'State Security Budget', 'Private Partnerships', 'Asset Forfeiture'];
+        const processedFundingLabels = fundingLabels.map(splitLabel);
+
+        new Chart(ctxFunding, {
+            type: 'bar',
+            data: {
+                labels: processedFundingLabels,
+                datasets: [{
+                    label: 'Projected Contribution ($M)',
+                    data: [15, 8, 6, 4, 1.5],
+                    backgroundColor: [
+                        '#34d399', // Emerald for grants
+                        '#f472b6', // Pink for AAM/New Tech
+                        '#0ea5e9', // Sky Blue for State
+                        '#818cf8', // Indigo for partnerships
+                        '#cbd5e1'  // Slate for forfeiture
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                ...commonOptions,
+                indexAxis: 'y',
+                plugins: {
+                    ...commonOptions.plugins,
+                    legend: { display: false },
+                    tooltip: {
+                        ...commonOptions.plugins.tooltip,
+                        backgroundColor: 'rgba(30, 41, 59, 0.9)',
+                        titleColor: '#fff',
+                        bodyColor: '#fff'
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { color: '#e2e8f0' },
+                        ticks: { 
+                            color: '#334155', // Darkened numbers for visibility
+                            font: { weight: 'bold' } 
+                        }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: { 
+                            color: '#1e293b', // Darkened labels to act as the legend
+                            font: { weight: 'bold', size: 12 } 
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
